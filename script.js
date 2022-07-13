@@ -1,9 +1,11 @@
+
+// <-----------------------------------Working with DOM Manipulation----------------------------------------->
+
 const myarray=["rock","paper","scissor"]
 function computerplay(){
     const random=Math.floor(Math.random()*myarray.length)
     return myarray[random];
 }
-//const computerselection=computerplay();
 
 
 let playerScore=0;
@@ -40,16 +42,13 @@ function gameresult(event){
     div.classList.add('content-1')
     const para=document.createElement('p')
     if (result=="tie"){
-        //console.log("It's a Tie.")
         para.textContent="It's a Tie.Both of you have selected "+playerselection;
 
     }else if(result=="Win"){
         playerScore++
-        //console.log("You have Won this Round. ")
         para.textContent="You have won this Round.Your Selection was "+playerselection+" and Computer's selection was "+computerselection;
     }else if(result=="lose"){
         computerScore++
-        //console.log("Computer have Won this Round. ")
         para.textContent="Computer have Won this Round.Your Selection was "+playerselection+" and Computer's selection was "+computerselection
     }
     div.appendChild(para);
@@ -58,8 +57,8 @@ function gameresult(event){
 function Score(){
     const results=document.querySelector('.results')
     const para=document.querySelector('.results > .para')
-    //const para=document.createElement('p');
-    para.classList.toggle(".para");
+    para.classList.remove("para");
+    para.classList.add("para")
     if(playerScore>computerScore){
         para.textContent="Congratulation!!..You have Won this match.Your Score was "+playerScore+" and Computer Score was "+computerScore;  
     }else if(computerScore>playerScore){
@@ -67,36 +66,17 @@ function Score(){
     }else{
         para.textContent="The Match was a Draw.Your Score "+playerScore+" as well as Computer's Score "+computerScore+" was the same.";
     }
+    const para2=document.createElement('p');
+    para2.classList.toggle("para-2")
+    para2.textContent="Click any Mouse Key to Clear the Screen"
     results.appendChild(para);
+    results.appendChild(para2);
     
-}
-
-// <--------------------------Working with DOM Manipulation----------------------------------------->
-
-// const Rock=document.querySelector('.btn-R');
-// Rock.addEventListener('click',playround('rock', computerselection));
-
-// const Paper=document.querySelector('.btn-P');
-// Paper.addEventListener('click',playround('paper',()=> computerselection));
-
-// const Scissor=document.querySelector('.btn-S');
-// Scissor.addEventListener('click',playround('scissor',()=> computerselection));
-
-
-function removegame(){
-    const container=document.querySelector('.container');
-    const para=document.querySelector('.results > .para')
-    // const div=container.querySelectorAll('.content-1');
-    container.textContent="Well Done";
-    para.textContent="You Played Well."
-    count=0;
-    return;
-    //console.log(e)
 }
 
 function game(event){
    console.log(count)
-    if(count<5){
+   if(count<5){
         const container=document.querySelector('.container');
         const para=document.querySelector('.results > .para');
         container.textContent="";
@@ -109,26 +89,21 @@ function game(event){
         Score();
         playerScore=0;
         computerScore=0;
-        // buttons.forEach((button)=>{
-        //     //button.addEventListener('click',removegame);
-        //     count=0;
-        //     button.removeEventListener('click',game)
-        //     return;
-        // })
     }
     if(count>5){
         count=0;
         const container=document.querySelector('.container');
-        const para=document.querySelector('.results > .para');
+        const results=document.querySelector('.results')
+        const para=document.querySelector('.results > .para')
+        const para2=document.querySelector('.results > .para-2')
+        para.classList.remove("para");
+        para2.remove();
+        para.classList.add("para")
         container.textContent="Well Done.You Played Well.";
         para.textContent="Press Again to Play the Game Again"
-    //  buttons.forEach((button)=>{
-    //     // button.addEventListener('click',removegame);
-    //     button.removeEventListener('click',game)
-    //  })
     }
     count++;
-//console.log(event) 
+    
 }
 
 const buttons=Array.from(document.querySelectorAll('button'));
