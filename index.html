@@ -6,14 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js" defer></script>
-    <script src="style.css"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/4c9591833a.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="buttons">
-        <button class="btn-R">ROCK</button>
-        <button class="btn-P">PAPER</button>
-        <button class="btn-S">SCISSOR</button>
+    <div class="sec-01">
+        <div class="header">
+            <div><img src="images/icons8-rock-96.png" alt=""><h1 id="01">ROCK</h1></div>
+            <div><img src="images/icons8-paper-96.png" alt=""><h1 id="02"> PAPER</h1></div>
+            <div><img src="images/scissors.png" alt=""><h1 id="03">SCISSOR</h1></div>
+        </div>
+        <h2>You are going to play this game against Computer.</h2>
+        <p>Let's see who have the guts to WIN this game</p>
     </div>
+    <div id="buttons">
+        <button class="btn-R"><i class="fa-solid fa-hand-back-fist"></i>ROCK</button>
+        <button class="btn-P"><i class="fa-solid fa-hand"></i>PAPER</button>
+        <button class="btn-S"><i class="fa-solid fa-hand-scissors"></i>SCISSOR</button>
+    </div>
+    <hr>
+    <p class="Game-stat">GAME STATUS</p>
     <div class="container"></div>
     <div class="results">
         <p class="para">Please Pick your Selection to Start the game.</p>
