@@ -42,14 +42,14 @@ function gameresult(event){
     div.classList.add('content-1')
     const para=document.createElement('p')
     if (result=="tie"){
-        para.textContent="It's a Tie.Both of you have selected "+playerselection;
+        para.textContent="It's a Tie.Both of you have selected "+playerselection.toUpperCase();
 
     }else if(result=="Win"){
         playerScore++
-        para.textContent="You have won this Round.Your Selection was "+playerselection+" and Computer's selection was "+computerselection;
+        para.textContent="You have won this Round.Your Selection was "+playerselection.toUpperCase()+" and Computer's selection was "+computerselection.toUpperCase();
     }else if(result=="lose"){
         computerScore++
-        para.textContent="Computer have Won this Round.Your Selection was "+playerselection+" and Computer's selection was "+computerselection
+        para.textContent="Computer have Won this Round.Your Selection was "+playerselection.toUpperCase()+" and Computer's selection was "+computerselection.toUpperCase()
     }
     div.appendChild(para);
     container.appendChild(div);
@@ -101,6 +101,7 @@ function game(event){
         para.classList.add("para")
         container.textContent="Well Done.You Played Well.";
         para.textContent="Press Again to Play the Game Again"
+        return;
     }
     count++;
     
